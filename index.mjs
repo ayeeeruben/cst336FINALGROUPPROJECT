@@ -41,7 +41,7 @@ app.get('/home', isUserAuthenticated, (req, res) => {
 app.get('/explore', isUserAuthenticated, async (req, res) => {
 
   const sql = `
-    SELECT Company, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`
+    SELECT id, Company, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`
     FROM cst336final
     ORDER BY RAND()
     LIMIT 12
@@ -55,6 +55,17 @@ app.get('/explore', isUserAuthenticated, async (req, res) => {
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect("/");
+});
+
+app.get('/productProfile/:id', isUserAuthenticated, async (req, res) => {
+    let id = req.params.id;
+
+    let sql = `SELECT *
+               FROM cst336final
+              WHERE id = ?`;
+    const [rows] = await pool.query(sql, [id]);
+
+    res.render('productProfile.ejs', { paddle: rows[0] });
 });
 
 

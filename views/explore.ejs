@@ -35,11 +35,11 @@
         .forEach(p => { %>
         <div class="col">
           <!-- Wrap card in a link -->
-          <a href="/product/<%= p.id %>" class="text-decoration-none text-dark">
+        <a href="/productProfile/<%= p.id %>" class="text-decoration-none text-dark">
             <div class="card h-100 shadow-sm">
               <img src="<%= p['Paddle img'] %>" 
                    class="card-img-top img-fluid" 
-                   alt="<%= p.Paddle %>" 
+                   alt="<%= p.Paddle %>"
                    style="height: 150px; object-fit: contain;" />
               <div class="card-body text-center">
                 <h5 class="card-title"><%= p.Paddle %></h5>
