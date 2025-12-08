@@ -25,7 +25,12 @@
     <h1> Discover New Paddles! </h1>
 
   <%- include("partials/navbar.ejs") %>
-
+<div class="container my-4">
+  <form action="/explore" method="GET" class="d-flex justify-content-center">
+    <input type="text" name="search" class="form-control w-50 me-2" placeholder="Search paddles by name..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
   <div class="container my-5">
     <!-- Responsive grid of 12 random paddles -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">

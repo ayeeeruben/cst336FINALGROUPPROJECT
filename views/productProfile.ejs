@@ -19,10 +19,12 @@
             <h3>Company: <%= paddle.Company %></h3>
             <p><strong>Retail Price:</strong> <span class="text-decoration-line-through"><%= paddle['Retail Price'] %></span></p>
             <p><strong>Discounted Price:</strong> <span class="text-danger fw-bold"><%= paddle['Discounted Price'] %></span></p>
-            <p><strong>Description:</strong> <%= paddle.Description %></p>
-            <p><strong>Material:</strong> <%= paddle.Material %></p>
-            <p><strong>Weight:</strong> <%= paddle.Weight %></p>
-            <p><strong>Grip Size:</strong> <%= paddle['Grip Size'] %></p>
+            <p><strong>Material:</strong> <%= paddle['Surface Material'] %></p>
+            <p><strong>Weight:</strong> <%= paddle['Static Weight'] %></p>
+            <p><strong>Discount Code:</strong> <%= paddle['Discount Code']%></p>
+            <p><strong>Link:</strong> 
+            <a href="https://<%= paddle.Link %>" target="_blank">Visit Store</a>
+            </p>        
         </div>
     </div>
 </div>
