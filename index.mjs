@@ -70,6 +70,23 @@ app.get('/productProfile/:id', isUserAuthenticated, async (req, res) => {
     res.render('productProfile.ejs', { paddle: rows[0] });
 });
 
+app.get('/addPaddle', isUserAuthenticated, (req, res) => {
+    res.render('addPaddle.ejs');
+});
+
+app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
+    let paddleName = req.body.paddleName;
+    let paddleImg = req.body.paddleImg;
+    let paddlePrice = req.body.paddlePrice;
+    let paddleDescription = req.body.paddleDescription;
+
+    let sql = `INSERT INTO cst336final (id, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`, \`Surface Material\`, \`Static Weight\`, \`Discount Code\`)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    await pool.query(sql, [paddleName, paddleImg, paddlePrice, retailPrice, surfaceMaterial, staticWeight, discountCode]);
+
+    res.redirect('/explore');
+});
+
 
 app.post('/loginProcess', async (req, res) => {
     let username = req.body.username;
