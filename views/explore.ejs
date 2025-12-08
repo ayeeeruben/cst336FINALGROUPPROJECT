@@ -13,7 +13,9 @@
      <div class="grid">
       <% paddles.forEach(p => { %>
         <div class="card">
-          <img src="<%= p['Paddle img'] %>" alt="<%= p.Paddle %>">
+          <div class="card-image">
+            <img src="<%= p['Paddle img'] %>" alt="<%= p.Paddle %>">
+          </div>
 
           <h3><%= p.Paddle %></h3>
 
