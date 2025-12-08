@@ -19,8 +19,9 @@ footer {
   color: #fff;
   text-align: center;
   padding: 15px 0;
-  margin-top: 40px;
+  margin-top: auto; /* ensures footer is at the end */
 }
+<<<<<<< HEAD
 
 footer {
   position: fixed;
@@ -32,4 +33,9 @@ footer {
   text-align: center;
   border-top: 1px solid #ccc;
   z-index: 999;
+=======
+h1{
+    text-align: center;
+    margin-top: 20px;
+>>>>>>> rubensBranch
 }
