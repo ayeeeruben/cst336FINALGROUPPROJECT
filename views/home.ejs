@@ -6,9 +6,25 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Home</title>
+    <style>
+        .iframe-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            max-width: 1200px;
+        }
+        
+        .iframe-container iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1> Pickleball and Paddle Board Paddles! </h1>
+    <h1> Pickleball News! </h1>
     <p>Current time in California: <span id="api-time">Loading...</span></p>
 
     <script>
@@ -26,7 +42,10 @@
     
     <%- include("partials/navbar.ejs") %>
 
-    <p>This is where we can add a descripition and why we decieed to make this maybe include images and stuff too</p>
+    <div class="iframe-container">
+        <h2>Major Pickleball News</h2>
+        <iframe src="https://pickleball.com/" title="Major Pickleball News"></iframe>
+    </div>
 
     <%- include("partials/footer.ejs") %>
 
