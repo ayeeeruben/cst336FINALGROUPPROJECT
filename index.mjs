@@ -38,18 +38,20 @@ app.get('/home', isUserAuthenticated, (req, res) => {
     res.render('home.ejs');
 });
 
-app.get('/explore', isUserAuthenticated, async (req, res) => {
+app.get('/explore', async (req, res) => {
+  const search = req.query.search || '';
 
-  const sql = `
-    SELECT id, Company, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`
-    FROM cst336final
-    ORDER BY RAND()
-    LIMIT 12
-  `;
+  let sql = `SELECT * FROM cst336final`;
+  let params = [];
 
-  const [rows] = await pool.query(sql);
+  if (search) {
+    sql += ` WHERE Paddle LIKE ?`;
+    params.push(`%${search}%`);
+  }
 
-  res.render('explore.ejs', { paddles: rows });
+  const [rows] = await pool.query(sql, params);
+
+  res.render('explore.ejs', { paddles: rows, search });
 });
 
 app.get('/logout', (req, res) => {
