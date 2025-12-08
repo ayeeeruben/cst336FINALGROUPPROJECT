@@ -78,8 +78,10 @@ app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
     let paddleName = req.body.paddleName;
     let paddleImg = req.body.paddleImg;
     let paddlePrice = req.body.paddlePrice;
-    let paddleDescription = req.body.paddleDescription;
-
+    let retailPrice = req.body.retailPrice;
+    let surfaceMaterial = req.body.surfaceMaterial;
+    let staticWeight = req.body.staticWeight;
+    let discountCode = req.body.discountCode;
     let sql = `INSERT INTO cst336final (id, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`, \`Surface Material\`, \`Static Weight\`, \`Discount Code\`)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
     await pool.query(sql, [paddleName, paddleImg, paddlePrice, retailPrice, surfaceMaterial, staticWeight, discountCode]);
