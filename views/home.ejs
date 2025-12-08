@@ -8,6 +8,21 @@
 </head>
 <body>
     <h1> Pickleball and Paddle Board Paddles! </h1>
+    <p>Current time in California: <span id="api-time">Loading...</span></p>
+
+    <script>
+        fetch('https://worldtimeapi.org/api/timezone/America/Los_Angeles')
+            .then(res => res.json())
+            .then(data => {
+                const time = new Date(data.datetime).toLocaleString();
+                document.getElementById('api-time').textContent = time;
+            })
+            .catch(err => {
+                document.getElementById('api-time').textContent = 'Unable to fetch time';
+                console.error('Time API error:', err);
+            });
+    </script>
+    
     <%- include("partials/navbar.ejs") %>
 
     <p>This is where we can add a descripition and why we decieed to make this maybe include images and stuff too</p>
