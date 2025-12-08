@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Product Page</title>
+</head>
+<body>
+<h1 class="text-center my-4"><%= paddle.Paddle %></h1>
+  <%- include("partials/navbar.ejs") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="<%= paddle['Paddle img'] %>" alt="<%= paddle.Paddle %>" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h3>Company: <%= paddle.Company %></h3>
+            <p><strong>Retail Price:</strong> <span class="text-decoration-line-through"><%= paddle['Retail Price'] %></span></p>
+            <p><strong>Discounted Price:</strong> <span class="text-danger fw-bold"><%= paddle['Discounted Price'] %></span></p>
+            <p><strong>Description:</strong> <%= paddle.Description %></p>
+            <p><strong>Material:</strong> <%= paddle.Material %></p>
+            <p><strong>Weight:</strong> <%= paddle.Weight %></p>
+            <p><strong>Grip Size:</strong> <%= paddle['Grip Size'] %></p>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
+
+    
+</body>
+</html>
