@@ -19,7 +19,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 15px 0;
-  margin-top: 40px;
+  margin-top: auto; /* ensures footer is at the end */
 }
 h1{
     text-align: center;
