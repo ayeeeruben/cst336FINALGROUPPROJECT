@@ -75,19 +75,37 @@ app.get('/addPaddle', isUserAuthenticated, (req, res) => {
 });
 
 app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
-    let paddleName = req.body.paddleName;
-    let paddleImg = req.body.paddleImg;
-    let paddlePrice = req.body.paddlePrice;
-    let retailPrice = req.body.retailPrice;
-    let surfaceMaterial = req.body.surfaceMaterial;
-    let staticWeight = req.body.staticWeight;
-    let discountCode = req.body.discountCode;
-    let sql = `INSERT INTO cst336final (id, Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`, \`Surface Material\`, \`Static Weight\`, \`Discount Code\`)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-    await pool.query(sql, [paddleName, paddleImg, paddlePrice, retailPrice, surfaceMaterial, staticWeight, discountCode]);
+  const {
+    paddleName,
+    paddleImg,
+    retailPrice,
+    paddlePrice,
+    surfaceMaterial,
+    staticWeight,
+    discountCode,
+    paddleDescription
+  } = req.body;
 
-    res.redirect('/explore');
+  let sql = `
+    INSERT INTO cst336final 
+      (Paddle, \`Paddle img\`, \`Retail Price\`, \`Discounted Price\`, \`Surface Material\`, \`Static Weight\`, \`Discount Code\`)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  await pool.query(sql, [
+    paddleName,
+    paddleImg,
+    retailPrice,
+    paddlePrice,
+    surfaceMaterial,
+    staticWeight,
+    discountCode,
+    paddleDescription
+  ]);
+
+  res.redirect('/explore');
 });
+
 
 
 app.post('/loginProcess', async (req, res) => {
