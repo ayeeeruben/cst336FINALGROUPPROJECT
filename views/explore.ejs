@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles.css" rel="stylesheet">
+    <title>Explore!</title>
+</head>
+<body>
+    <h1> Discover New Products! </h1>
+    <%- include("partials/navbar.ejs") %>
+
+     <div class="grid">
+      <% paddles.forEach(p => { %>
+        <div class="card">
+          <img src="<%= p['Paddle img'] %>" alt="<%= p.Paddle %>">
+
+          <h3><%= p.Paddle %></h3>
+
+          <p class="company"><strong>Company:</strong> <%= p.Company %></p>
+
+          <p class="price-retail">
+            Retail: <%= p['Retail Price'] %>
+          </p>
+          <p class="price-discount">
+            Sale: <%= p['Discounted Price'] %>
+          </p>
+        </div>
+      <% }) %>
+    </div>
+
+</body>
+</html>
