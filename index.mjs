@@ -52,6 +52,11 @@ app.get('/explore', isUserAuthenticated, async (req, res) => {
   res.render('explore.ejs', { paddles: rows });
 });
 
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect("/");
+});
+
 
 app.post('/loginProcess', async (req, res) => {
     let username = req.body.username;
@@ -78,6 +83,7 @@ app.post('/loginProcess', async (req, res) => {
     }
 
 });
+
 
 
 function isUserAuthenticated(req, res, next){

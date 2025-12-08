@@ -67,3 +67,15 @@ img {
   font-size: 0.95rem;
   color: #555;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f5f5f5;    /* or your theme */
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  z-index: 999;
+}
