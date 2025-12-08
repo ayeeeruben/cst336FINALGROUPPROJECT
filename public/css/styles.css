@@ -1,3 +1,10 @@
+body {
+    background-image: url('/images/pickleballBackground.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 nav {
   background: #222;
   color: #fff;
