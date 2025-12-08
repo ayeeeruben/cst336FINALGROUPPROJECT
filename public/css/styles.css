@@ -28,7 +28,6 @@
   overflow: hidden;
 }
 
-<<<<<<< HEAD
     .card img {
       max-width: 100%;
       height: 180px;
@@ -36,15 +35,6 @@
       border-radius: 6px;
       margin-bottom: 10px;
     }
-=======
-/* FORCE every paddle image to stay inside that box */
-.grid .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
->>>>>>> 2364dcef4f07e572311ef3b7299d424f64fcea29
 
 /* optional: shrink text a bit so it doesn't blow up the cards */
 .card h3,
