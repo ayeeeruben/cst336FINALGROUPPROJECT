@@ -57,17 +57,6 @@ app.get('/logout', (req, res) => {
     res.redirect("/");
 });
 
-app.get('/productProfile', isUserAuthenticated, async (req, res) => {
-    let id = req.query.id;
-
-    let sql = `SELECT *
-               FROM cst336final
-              WHERE id = ?`;
-    const [rows] = await pool.query(sql, [id]);
-
-    res.render('productProfile.ejs', { paddle: rows[0] });
-});
-
 
 app.post('/loginProcess', async (req, res) => {
     let username = req.body.username;

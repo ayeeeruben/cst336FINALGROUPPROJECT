@@ -21,15 +21,17 @@
 
         <p class="company"><strong>Company:</strong> <%= p.Company %></p>
 
-        <p class="price-retail">
-          Retail: <%= p['Retail Price'] %>
-        </p>
-        <p class="price-discount">
-          Sale: <%= p['Discounted Price'] %>
-        </p>
-      </div>
-    <% }) %>
-  </div>
+          <p class="price-retail">
+            Retail: <%= p['Retail Price'] %>
+          </p>
+          <p class="price-discount">
+            Sale: <%= p['Discounted Price'] %>
+          </p>
+        </div>
+      <% }) %>
+    </div>
+        <%- include("partials/footer.ejs") %>
+
 
   <%- include("partials/footer.ejs") %>
 </body>
