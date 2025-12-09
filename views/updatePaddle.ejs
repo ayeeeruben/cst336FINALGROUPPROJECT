@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page</title>
+</head>
+
+<body>
+    <h1> Update Profile </h1>
+    <%- include("partials/navbar.ejs") %>
+   <form method="POST" action="/updatePaddleProcess">
+        <input type="hidden" name="id" value="<%= paddle.id %>">
+
+        Paddle Name:
+        <input type="text" name="paddleName" value="<%= paddle.Paddle %>"><br><br>
+
+        Image URL:
+        <input type="text" name="paddleImg" value="<%= paddle['Paddle img'] %>"><br><br>
+
+        Retail Price:
+        <input type="number" step="0.01" name="retailPrice" value="<%= paddle['Retail Price'] %>"><br><br>
+
+        Discounted Price:
+        <input type="number" step="0.01" name="paddlePrice" value="<%= paddle['Discounted Price'] %>"><br><br>
+
+        Surface Material:
+        <input type="text" name="surfaceMaterial" value="<%= paddle['Surface Material'] %>"><br><br>
+
+        Static Weight:
+        <input type="text" name="staticWeight" value="<%= paddle['Static Weight'] %>"><br><br>
+
+        Discount Code:
+        <input type="text" name="discountCode" value="<%= paddle['Discount Code'] %>"><br><br>
+
+        <button type="submit">Update Paddle</button>
+    </form>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+
+</html>

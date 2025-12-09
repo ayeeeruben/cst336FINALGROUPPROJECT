@@ -74,6 +74,56 @@ app.get('/addPaddle', isUserAuthenticated, (req, res) => {
     res.render('addPaddle.ejs');
 });
 
+app.get('/updatePaddle/:id', isUserAuthenticated, async (req, res) => {
+  const { id } = req.params;
+
+  const sql = 'SELECT * FROM cst336final WHERE id = ?';
+  const [rows] = await pool.query(sql, [id]);
+
+  if (!rows.length) {
+    return res.status(404).send('Paddle not found for id ' + id);
+  }
+
+  res.render('updatePaddle.ejs', { paddle: rows[0] });
+});
+
+app.post('/updatePaddleProcess', isUserAuthenticated, async (req, res) => {
+    const {
+        id,
+        paddleName,
+        paddleImg,
+        retailPrice,
+        paddlePrice,
+        surfaceMaterial,
+        staticWeight,
+        discountCode,
+    } = req.body;
+    let sql = `
+        UPDATE cst336final
+           SET Paddle = ?,
+               \`Paddle img\` = ?,
+               \`Retail Price\` = ?,
+               \`Discounted Price\` = ?,
+               \`Surface Material\` = ?,
+               \`Static Weight\` = ?,
+               \`Discount Code\` = ?
+         WHERE id = ?
+    `;
+
+    await pool.query(sql, [
+        paddleName,
+        paddleImg,
+        retailPrice,
+        paddlePrice,
+        surfaceMaterial,
+        staticWeight,
+        discountCode,
+        id
+    ]);
+
+    res.redirect('/explore');
+});
+
 app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
   const {
     paddleName,
@@ -105,7 +155,6 @@ app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
 
   res.redirect('/explore');
 });
-
 
 
 app.post('/loginProcess', async (req, res) => {

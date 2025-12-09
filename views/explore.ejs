@@ -34,28 +34,29 @@
   <div class="container my-5">
     <!-- Responsive grid of 12 random paddles -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      <% paddles
+    <% paddles
         .sort(() => 0.5 - Math.random())   // randomize
         .slice(0, 12)                      // limit to 12
         .forEach(p => { %>
         <div class="col">
-          <!-- Wrap card in a link -->
-        <a href="/productProfile/<%= p.id %>" class="text-decoration-none text-dark">
             <div class="card h-100 shadow-sm">
-              <img src="<%= p['Paddle img'] %>" 
-                   class="card-img-top img-fluid" 
-                   alt="<%= p.Paddle %>"
-                   style="height: 150px; object-fit: contain;" />
-              <div class="card-body text-center">
+            <a href="/productProfile/<%= p.id %>" class="text-decoration-none text-dark">
+                <img src="<%= p['Paddle img'] %>" 
+                    class="card-img-top img-fluid" 
+                    alt="<%= p.Paddle %>"
+                    style="height: 150px; object-fit: contain;" />
+            </a>
+            <div class="card-body text-center">
                 <h5 class="card-title"><%= p.Paddle %></h5>
                 <p class="card-text mb-1"><strong>Company:</strong> <%= p.Company %></p>
                 <p class="text-muted text-decoration-line-through mb-0">Retail: <%= p['Retail Price'] %></p>
                 <p class="text-danger fw-bold">Sale: <%= p['Discounted Price'] %></p>
-              </div>
+                <!-- Edit button here -->
+                <a href="/updatePaddle/<%= p.id %>" class="btn btn-sm btn-warning mt-2">Edit</a>
             </div>
-          </a>
+            </div>
         </div>
-      <% }) %>
+    <% }) %>  
     </div>
   </div>
 
