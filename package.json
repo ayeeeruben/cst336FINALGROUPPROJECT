@@ -11,10 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
     "express-session": "^1.18.2",
+    "googleapis": "^167.0.0",
     "mysql2": "^3.15.3",
+    "newsapi": "^2.4.1",
     "node-fetch": "^3.3.2"
   }
 }

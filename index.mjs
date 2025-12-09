@@ -3,7 +3,6 @@ import mysql from 'mysql2/promise';
 import session from 'express-session';
 import bcrypt from 'bcrypt';
 
-
 const app = express();
 
 app.set('trust proxy', 1) // trust first proxy
@@ -106,6 +105,14 @@ app.post('/addPaddleProcess', isUserAuthenticated, async (req, res) => {
   res.redirect('/explore');
 });
 
+// Serve EJS views
+app.set("view engine", "ejs");
+
+// Route for homepage
+app.get("/", (req, res) => {
+  res.render("home"); // renders home.ejs
+});
+
 
 
 app.post('/loginProcess', async (req, res) => {
@@ -133,7 +140,6 @@ app.post('/loginProcess', async (req, res) => {
     }
 
 });
-
 
 
 function isUserAuthenticated(req, res, next){
